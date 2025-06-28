@@ -1,7 +1,10 @@
 baseURL: https://example.org/
 languageCode: en-us
-title: Computer System and Securuty Club
+title: CSS Group
 theme: ""
+pagination: 
+  pagerSize: 1
+timeout: "600s"
 
 # ------
 # Module Set Up
@@ -26,6 +29,23 @@ module:
         target: layouts/docs
       - source: "@thegeeklab/hugo-geekdoc/assets"
         target: assets/geekdoc
+# ----
+# main page
+# ----
+menu:
+  main:
+    - identifier: members
+      name: Members
+      url: /members/
+      weight: 10
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
 
 # -----
 # Global params
@@ -34,13 +54,24 @@ module:
 params:
   # PaperMod-specific keys
   description: "Community for Operating Systems & Security"
-  showBreadCrumbs: true
+  showBreadCrumbs: false
+  showReadingTime: true
+  homeInfoParams:
+    Title: "🛠️Systems & Security Club"
+    Content: |
+      We are a student community for **Systems, Networks and Security** at Northeastern University Vancouver Campus.
+    
+      * [**Posts**](/posts) – meeting recaps, tutorials, opinion pieces  
+      * [**Docs**](/docs) – ongoing projects and archived events
+
+      Join us to hack on kernels, build file systems, and break things (securely)!
 
   # Geekdoc-specifuc params 
   geekdoc:
     title: "Docs"
     memuCollapsed: true
     disableSearch: false
+
 #-----
 # Goldmark tweaks
 # ------
