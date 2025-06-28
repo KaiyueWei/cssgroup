@@ -1,3 +1,51 @@
 baseURL: https://example.org/
 languageCode: en-us
-title: My New Hugo Site
+title: Computer System and Securuty Club
+theme: ""
+
+# ------
+# Module Set Up
+# ------
+
+
+module:
+    imports:
+    # 1) PaperMod for the blog /events
+      - path: github.com/adityatelange/hugo-PaperMod
+    # 2) Greekdoc for the doc under /docs
+      - path: github.com/thegeeklab/hugo-geekdoc
+
+    mounts:
+      # default content & assets
+      - source: content
+        target: content
+      - source: assets
+        target: assets
+      # Greekdoc templates and assets, mounted only for /docs
+      - source: "@thegeeklab/hugo-geekdoc/layouts"
+        target: layouts/docs
+      - source: "@thegeeklab/hugo-geekdoc/assets"
+        target: assets/geekdoc
+
+# -----
+# Global params
+# ------
+
+params:
+  # PaperMod-specific keys
+  description: "Community for Operating Systems & Security"
+  showBreadCrumbs: true
+
+  # Geekdoc-specifuc params 
+  geekdoc:
+    title: "Docs"
+    memuCollapsed: true
+    disableSearch: false
+#-----
+# Goldmark tweaks
+# ------
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
